@@ -5,6 +5,16 @@ import withGA from 'next-ga'
 import React from 'react'
 import App, { Container } from 'next/app'
 
+// unregister serviceworkers:
+if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+  // unregister the service worker if serviceWorker feature is disabled:
+  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    for (let registration of registrations) {
+      registration.unregister()
+    }
+  })
+}
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
