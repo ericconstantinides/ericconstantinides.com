@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "devWithServer": "node server.js",
     "build": "next build",
     "portStart": "next start -p $PORT",
-    "start": "NODE_ENV=production node server.js"
+    "start": "next start -p 3010",
+    "deploy": "pm2 deploy ecosystem.config.js production",
+    "pm2-next": "next build && pm2 start ./node_modules/next/dist/bin/next-start",
+    "pm2-next-cluster": "next build && pm2 start ./node_modules/next/dist/bin/next-start -i max"
   },
   "author": "Eric Constantinides",
   "license": "ISC",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "express": "^4.16.4",
     "next": "^8.0.3",
     "node-sass": "^4.11.0",
     "react": "^16.8.3",
