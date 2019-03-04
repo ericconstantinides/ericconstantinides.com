@@ -8,7 +8,7 @@
     "build": "next build",
     "portStart": "next start -p $PORT",
     "start": "next start -p 3010",
-    "deploy": "NODE_ENV=production pm2 deploy ecosystem.config.js production"
+    "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "author": "Eric Constantinides",
   "license": "ISC",
