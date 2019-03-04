@@ -4,8 +4,6 @@
   "description": "EricConstantinides.com using next.js",
   "main": "index.js",
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "dev": "next",
     "devWithServer": "node server.js",
     "build": "next build",
