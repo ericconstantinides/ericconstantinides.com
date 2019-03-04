@@ -1,0 +1,27 @@
+{
+  "name": "ericconstantinides.com",
+  "version": "2.0.0",
+  "description": "EricConstantinides.com using next.js",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "dev": "next",
+    "devWithServer": "node server.js",
+    "build": "next build",
+    "portStart": "next start -p $PORT",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "author": "Eric Constantinides",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "fontfaceobserver": "^2.1.0",
+    "next": "^8.0.3",
+    "node-sass": "^4.11.0",
+    "node-sass-chokidar": "^1.3.4",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-ga": "^2.5.7"
+  }
+}
