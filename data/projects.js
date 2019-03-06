@@ -75,7 +75,7 @@ const projects = [
     description:
       'Created in React which makes it snappy and work well with JSON data. All data is saved in js config files making it quickly expandable.',
     screenshot: 'portfolio--ericconstantinides--md.jpg',
-    primary_tech: ['React', 'JSON']
+    primary_tech: ['React', 'JSON', 'NextJs']
   },
   {
     id: 'ec_2017_constantly-being',

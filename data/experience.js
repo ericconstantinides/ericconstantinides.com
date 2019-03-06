@@ -28,8 +28,8 @@ const experience = [
           'cascading rule-based validation with minimally intrusive user errors'
       },
       {
-        title: 'Console Features',
-        info: 'implement dormant UI features via console'
+        title: 'Features Higher-Order-Component',
+        info: 'control UI features in the console including HMR'
       },
       {
         title: 'Create-Menu',

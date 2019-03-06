@@ -6,7 +6,7 @@ const skills = [
     skills: [
       {
         skill: 'React',
-        subSkills: ['JSX', 'Redux', 'Create-React-App'],
+        subSkills: ['JSX', 'Redux', 'NextJs'],
         yearStarted: '2017',
         type: 'front-end'
       },
