@@ -1,13 +1,14 @@
 import projects from './projects'
 // return array of objects of employer
-const getProjects = employer =>
-  projects.filter(project => project.employer === employer)
+const getProjects = employer => projects.filter(project => project.employer === employer)
 const experience = [
   {
     name: 'Insureon',
     location: 'Campbell, CA',
+    address: '300 Orchard City Dr, Suite 132, Campbell, CA 95008',
     description: 'Online Business Insurance Broker',
     startDate: 'January, 2018',
+    fullStartDate: '2018-01-24',
     endDate: 'Current',
     position: [
       {
@@ -24,8 +25,7 @@ const experience = [
       },
       {
         title: 'Intelligent Form Validation',
-        info:
-          'cascading rule-based validation with minimally intrusive user errors'
+        info: 'cascading rule-based validation with minimally intrusive user errors'
       },
       {
         title: 'Features Higher-Order-Component',
@@ -37,18 +37,15 @@ const experience = [
       },
       {
         title: 'Progressive Web App',
-        info:
-          'PWA implementation including Manifest and smart-caching using Service Workers'
+        info: 'PWA implementation including Manifest and smart-caching using Service Workers'
       },
       {
         title: 'Global CSS variables in JS',
-        info:
-          'CSS variables accessible in both JS and CSS with hot-module-replacement'
+        info: 'CSS variables accessible in both JS and CSS with hot-module-replacement'
       },
       {
         title: 'withAnalytics Higher-Order-Component',
-        info:
-          'Google Analytics wrapper for intelligently triggering analytic events'
+        info: 'Google Analytics wrapper for intelligently triggering analytic events'
       },
       {
         title: 'withAnimation Higher-Order-Component',
@@ -58,13 +55,35 @@ const experience = [
         title: 'Tiny Datepicker Component',
         info: '90% smaller DatePicker with no dependencies on Moment.js'
       }
+    ],
+    coWorkers: [
+      {
+        name: 'Thomas DeBenning',
+        title: 'Senior Director of Engineering for Retail',
+        email: ''
+      },
+      {
+        name: 'Mike Austin',
+        title: 'Lead Front-end Engineer',
+        email: 'mike.austin.1024@gmail.com'
+      },
+      { name: 'Anton Epishev', title: 'Back-end engineer' },
+      { name: 'Jeff Kim', title: 'Designer' },
+      { name: 'Alex Kim', title: 'Designer' },
+      { name: 'Janelle Flores', title: 'Designer' },
+      { name: 'Yvonne French' },
+      { name: 'Evelyn MacAdam' },
+      { name: 'Yi Wang' }
     ]
   },
   {
     name: 'BottomlessBrunch.com',
     location: 'San Jose, CA',
     startDate: 'April, 2017',
+    fullStartDate: '2017-04-24',
     endDate: 'January, 2018',
+    fullEndDate: '2018-01-23',
+    lengthOfEmployment: '9 months',
     position: [
       {
         title: 'Full-Stack UI Engineer',
@@ -77,8 +96,12 @@ const experience = [
     name: 'EverSport Media',
     description: 'Online Video Provider',
     location: 'Los Gatos, CA',
+    address: '101 Church St #40, Los Gatos, CA 95030',
     startDate: 'Sep, 2015',
+    fullStartDate: '2015-09-21',
     endDate: 'Jan, 2017',
+    fullEndDate: '2017-01-24',
+    lengthOfEmployment: '1 year, 4 months, 4 days',
     position: [
       {
         title: 'Lead Front-end Developer',
@@ -87,14 +110,41 @@ const experience = [
       }
     ],
     skillsUsed: '',
-    projects: getProjects('EverSport Media')
+    projects: getProjects('EverSport Media'),
+    coWorkers: [
+      {
+        name: 'Ben Strong',
+        title: 'Chief Product Officer',
+        email: 'benjaminstrong@gmail.com'
+      },
+      {
+        name: 'Wayne Sieve',
+        title: 'CEO & Co-founder',
+        email: 'wsieve@gmail.com'
+      },
+      {
+        name: 'Steve Enders',
+        title: 'Head of Product',
+        email: 'carpoolio@gmail.com'
+      },
+      {
+        name: 'David Adams',
+        title: 'Chief Financial Officer',
+        email: 'david@rocketventures.com'
+      }
+    ]
   },
   {
     name: 'Flickerbox, Inc.',
-    description: 'Agency',
+    description: 'Digital Design Agency',
     location: 'San Francisco, CA',
+    address: '246 Shipley St, San Francisco, CA 94107',
+    phoneNumber: '(415) 436-9383',
     startDate: 'Jan, 2012',
+    fullStartDate: '2012-01-30',
     endDate: 'June, 2015',
+    fullEndDate: '2015-06-22',
+    lengthOfEmployment: '3 years, 4 months, 24 days',
     position: [
       {
         title: 'Senior Web Developer',
@@ -107,7 +157,14 @@ const experience = [
         info: `Architected content structure for websites. Hand-coded HTML, SCSS (CSS), and JS from designs into responsive and interactive pages. Implemented JavaScript libraries and wrote custom JavaScript/jQuery code.`
       }
     ],
-    projects: getProjects('Flickerbox, Inc')
+    projects: getProjects('Flickerbox, Inc'),
+    coWorkers: [
+      {
+        name: 'Paul J. Martinez',
+        title: 'Director of Technology',
+        email: 'paul@flickerbox.com'
+      }
+    ]
   },
   {
     name: 'Independent Web Developer',
@@ -120,8 +177,7 @@ const experience = [
       //   meta: 'Jan 2017 - Current)'
       // },
       {
-        title:
-          'Full MERN Stack Web-App Developer. Previously, Full LAMP Stack Developer'
+        title: 'Full MERN Stack Web-App Developer. Previously, Full LAMP Stack Developer'
       }
     ],
     projects: getProjects('Eric Constantinides')
