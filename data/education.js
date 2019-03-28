@@ -3,6 +3,8 @@ const education = [
     name: 'W.P. Carey School of Business',
     url: 'wpcarey.asu.edu',
     startDate: 'Arizona State University',
+    fullStartDate: '1996-08-26',
+    fullEndDate: '2000-12-14',
     location: 'Tempe, AZ',
     position: [
       {

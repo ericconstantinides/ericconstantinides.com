@@ -7,9 +7,12 @@ const experience = [
     location: 'Campbell, CA',
     address: '300 Orchard City Dr, Suite 132, Campbell, CA 95008',
     description: 'Online Business Insurance Broker',
-    startDate: 'January, 2018',
+    startDate: 'Jan 2018',
     fullStartDate: '2018-01-24',
-    endDate: 'Current',
+    // endDate: 'Current',
+    endDate: 'Apr 2019',
+    fullEndDate: '2019-04-02',
+    lengthOfEmployment: '1 year, 2 months, 10 days',
     position: [
       {
         title: 'Front-end UI Engineer',
@@ -55,33 +58,14 @@ const experience = [
         title: 'Tiny Datepicker Component',
         info: '90% smaller DatePicker with no dependencies on Moment.js'
       }
-    ],
-    coWorkers: [
-      {
-        name: 'Thomas DeBenning',
-        title: 'Senior Director of Engineering for Retail',
-        email: ''
-      },
-      {
-        name: 'Mike Austin',
-        title: 'Lead Front-end Engineer',
-        email: 'mike.austin.1024@gmail.com'
-      },
-      { name: 'Anton Epishev', title: 'Back-end engineer' },
-      { name: 'Jeff Kim', title: 'Designer' },
-      { name: 'Alex Kim', title: 'Designer' },
-      { name: 'Janelle Flores', title: 'Designer' },
-      { name: 'Yvonne French' },
-      { name: 'Evelyn MacAdam' },
-      { name: 'Yi Wang' }
     ]
   },
   {
     name: 'BottomlessBrunch.com',
     location: 'San Jose, CA',
-    startDate: 'April, 2017',
+    startDate: 'Apr 2017',
     fullStartDate: '2017-04-24',
-    endDate: 'January, 2018',
+    endDate: 'Jan 2018',
     fullEndDate: '2018-01-23',
     lengthOfEmployment: '9 months',
     position: [
@@ -97,42 +81,20 @@ const experience = [
     description: 'Online Video Provider',
     location: 'Los Gatos, CA',
     address: '101 Church St #40, Los Gatos, CA 95030',
-    startDate: 'Sep, 2015',
+    startDate: 'Sep 2015',
     fullStartDate: '2015-09-21',
-    endDate: 'Jan, 2017',
+    endDate: 'Jan 2017',
     fullEndDate: '2017-01-24',
     lengthOfEmployment: '1 year, 4 months, 4 days',
     position: [
       {
         title: 'Lead Front-end Developer',
-        disabled_meta: 'Sep, 2015 - Jan, 2017',
+        disabled_meta: 'Sep 2015 - Jan 2017',
         info: `Lead Front-end Developer for Eversport's themes and modules using JavaScript, SCSS / CSS, Drupal and PHP. Designed and developed the site and the user-interface for the Single Page App media player that ran on 3rd party sites.`
       }
     ],
     skillsUsed: '',
-    projects: getProjects('EverSport Media'),
-    coWorkers: [
-      {
-        name: 'Ben Strong',
-        title: 'Chief Product Officer',
-        email: 'benjaminstrong@gmail.com'
-      },
-      {
-        name: 'Wayne Sieve',
-        title: 'CEO & Co-founder',
-        email: 'wsieve@gmail.com'
-      },
-      {
-        name: 'Steve Enders',
-        title: 'Head of Product',
-        email: 'carpoolio@gmail.com'
-      },
-      {
-        name: 'David Adams',
-        title: 'Chief Financial Officer',
-        email: 'david@rocketventures.com'
-      }
-    ]
+    projects: getProjects('EverSport Media')
   },
   {
     name: 'Flickerbox, Inc.',
@@ -140,31 +102,24 @@ const experience = [
     location: 'San Francisco, CA',
     address: '246 Shipley St, San Francisco, CA 94107',
     phoneNumber: '(415) 436-9383',
-    startDate: 'Jan, 2012',
+    startDate: 'Jan 2012',
     fullStartDate: '2012-01-30',
-    endDate: 'June, 2015',
+    endDate: 'Jun 2015',
     fullEndDate: '2015-06-22',
     lengthOfEmployment: '3 years, 4 months, 24 days',
     position: [
       {
         title: 'Senior Web Developer',
-        meta: 'Jan, 2014 - June, 2015',
+        meta: 'Jan 2014 - June 2015',
         info: `Orchestrated the weekly developer meetings; drafted timelines and estimates for future projects; composed technical briefs for client-side contracts; lead web development projects.`
       },
       {
         title: 'Web Developer',
-        meta: 'Jan, 2012 - Jan, 2014',
+        meta: 'Jan 2012 - Jan 2014',
         info: `Architected content structure for websites. Hand-coded HTML, SCSS (CSS), and JS from designs into responsive and interactive pages. Implemented JavaScript libraries and wrote custom JavaScript/jQuery code.`
       }
     ],
-    projects: getProjects('Flickerbox, Inc'),
-    coWorkers: [
-      {
-        name: 'Paul J. Martinez',
-        title: 'Director of Technology',
-        email: 'paul@flickerbox.com'
-      }
-    ]
+    projects: getProjects('Flickerbox, Inc')
   },
   {
     name: 'Independent Web Developer',
