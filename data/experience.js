@@ -3,6 +3,25 @@ import projects from './projects'
 const getProjects = employer => projects.filter(project => project.employer === employer)
 const experience = [
   {
+    name: 'Automation Anywhere',
+    location: 'San Jose, CA',
+    address: '1060 Rincon Circle, San Jose, CA 95131',
+    description: 'Robotic Process Automation (RPA) Provider',
+    startDate: 'Apr 2019',
+    fullStartDate: '2019-04-03',
+    endDate: 'Current',
+    // lengthOfEmployment: '',
+    position: [
+      {
+        title: 'Lead Front-end UI Engineer',
+        info:
+          'Lead Front-end UI engineer on botstore.automationanywhere.com.'
+      }
+    ],
+    // projects: getProjects('Insureon'),
+    initiatives: []
+  },
+  {
     name: 'Insureon',
     location: 'Campbell, CA',
     address: '300 Orchard City Dr, Suite 132, Campbell, CA 95008',

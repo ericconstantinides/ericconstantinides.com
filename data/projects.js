@@ -1,13 +1,26 @@
 const projects = [
   {
-    id: 'ec_2018_insureon',
+    id: 'aa_2019_automationanywhere',
+    title: 'Automation Anywhere Botstore',
+    alt_title: 'Botstore',
+    employer: 'Automation Anywhere',
+    date: '2019-Current',
+    website: 'botstore.automationanywhere.com',
+    active: true,
+    role: 'UI / JavaScript / React Engineer',
+    description: 'A Wordpress & React powered Digital Automation Marketplace.',
+    screenshot: 'portfolio--automation-anywhere-botstore--md.png',
+    primary_tech: ['React', 'Webpack', 'CSS Modules', 'Post CSS', 'JS', 'CSS', 'Wordpress']
+  },
+  {
+    id: 'in_2018_insureon',
     title: 'Insureon Customer Portal',
     alt_title: 'Customer Portal',
     employer: 'Insureon',
-    date: '2018-Current',
+    date: '2018-2019',
     website: 'up.insureon.com',
     active: false,
-    role: 'Javascript / React Engineer',
+    role: 'UI / JavaScript / React Engineer',
     description: 'A React-based customer portal web-app for Insureon.com.',
     screenshot: 'portfolio--insureon-customer-portal--md.png',
     primary_tech: ['React', 'Webpack', 'CSS Modules', 'Post CSS', 'JS', 'CSS']
