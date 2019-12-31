@@ -1,7 +1,8 @@
 import React from 'react'
 import convertIngredient from './convertIngredient'
+import { vulgarFractions } from '../../data/recipe/units'
 
-const MIN_MULTIPLIER = 1
+const MIN_MULTIPLIER = 0 // 0 will turn into half
 const MAX_MULTIPLIER = 8
 
 const Ingredient = props => {
@@ -58,10 +59,11 @@ const MeasuringSystemToggle = props => {
 
 const MultipliersSlider = props => {
   const { currentMultiplier, onMultiplierChange } = props
+  const displayMultiplier = currentMultiplier || vulgarFractions['1/2']
   return (
     <>
       <h4 className="">
-        <span>Recipe Size:</span> {currentMultiplier}<span className='u-tt-none'>x</span>
+        <span>Recipe Size:</span> {displayMultiplier}<span className='u-tt-none'>x</span>
       </h4>
       <div className="multiplier-slider__container u-d-f u-mb-2">
         <button
@@ -169,7 +171,7 @@ class Recipe extends React.Component {
           onPortionChange={this.handlePortionChange}
           {...{ portionSize, defaultPortionSize: this.defaultPortionSize }}
         />
-        <Ingredients {...{ ingredients, measuringSystem, currentMultiplier }} />
+        <Ingredients {...{ ingredients, measuringSystem, currentMultiplier: currentMultiplier || 0.5 }} />
       </div>
     )
   }
