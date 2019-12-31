@@ -15,8 +15,6 @@ import { vulgarFractions } from '../../data/recipe/units'
  * @param {*} newSystem
  */
 const convertIngredient = (ingredient, newSystem) => {
-  const currentSystem = newSystem === 'metric' ? 'imperial' : 'metric'
-  console.log({ ingredient, newSystem })
   const unit = ingredient.unit ? ingredient.unit : ''
   if (newSystem === 'metric' || !ingredient.unit || units[unit].system === newSystem) {
     // no conversion necessary:
