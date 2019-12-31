@@ -1,7 +1,9 @@
-%oswald { // headers
+%oswald {
+  // headers
   font-family: 'Oswald', sans-serif;
 }
-%quattro { // body
+%quattro {
+  // body
   font-family: 'Quattrocento Sans', sans-serif;
 }
 html {
@@ -42,7 +44,7 @@ h3 {
 }
 h1 {
   @extend %oswald;
-  @include responsive(font-size,5,2);
+  @include responsive(font-size, 5, 2);
   letter-spacing: 0.04em;
   line-height: 1.2;
   font-weight: 300;
@@ -51,7 +53,7 @@ h1 {
 h2 {
   @extend %oswald;
   // font-weight: bold;
-  @include responsive(font-size,2.25,1.625);
+  @include responsive(font-size, 2.25, 1.625);
   margin: -0.15em 0 0.65em;
   line-height: 1.1;
   border-bottom: 1px solid #333;
@@ -61,7 +63,7 @@ h2 {
 }
 h3 {
   @extend %oswald;
-  @include responsive(font-size,1.75,1.55);
+  @include responsive(font-size, 1.75, 1.55);
   font-size: 1.75em;
   font-weight: 300;
   margin: 0 0 0.4em;
@@ -70,7 +72,8 @@ h3 {
 p {
   margin: 0 0 1em;
 }
-p, li {
+p,
+li {
   font-size: 1rem;
   line-height: 1.3;
 }
@@ -81,13 +84,14 @@ h3 + .subhead {
   font-size: 1.2em;
 }
 h4 {
-  @include responsive(font-size,0.9,0.8);
+  @include responsive(font-size, 0.9, 0.8);
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 0;
 }
 @media only screen and (max-width: $bp-small) {
-  p, li {
+  p,
+  li {
     font-size: 1.125em;
     line-height: 1.3;
   }
@@ -137,9 +141,9 @@ h4 {
 }
 @media print {
   .resume-header {
-		justify-content: space-between;
-		flex-flow: row-reverse nowrap;
-		text-align: left;
+    justify-content: space-between;
+    flex-flow: row-reverse nowrap;
+    text-align: left;
   }
   .resume-header__copy {
     display: flex;
@@ -164,7 +168,7 @@ h4 {
   .resume-header__meta-inner-item {
     // padding-right: 1em;
     &:after {
-      content: "\2003|\2003";
+      content: '\2003|\2003';
       display: inline;
     }
     &:last-child:after {
@@ -173,17 +177,27 @@ h4 {
   }
 }
 .introduction {
-  margin-top: -0.25rem;  
+  margin-top: -0.25rem;
 }
-.columnize { @extend .clearfix; }
-.columnize-2 .column { width: 50%; }
-.columnize-3 .column { width: 33.33%; }
+.columnize {
+  @extend .clearfix;
+}
+.columnize-2 .column {
+  width: 50%;
+}
+.columnize-3 .column {
+  width: 33.33%;
+}
 .column {
   float: left;
   padding-right: $span-padding / 4;
   padding-left: $span-padding / 4;
-  &:first-child { padding-left: 0; }
-  &:last-child { padding-right: 0; }
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
 }
 .social-links {
   display: flex;
@@ -273,12 +287,12 @@ h4 {
   margin-bottom: 0.5em;
 }
 .site-header__intro-container {
-  background-color: rgba(#333B45,0.9);
-  @include responsive(padding-top,2);
-  @include responsive(padding-bottom,2);
+  background-color: rgba(#333b45, 0.9);
+  @include responsive(padding-top, 2);
+  @include responsive(padding-bottom, 2);
 }
 .site-header__intro {
-  @include responsive(font-size,1.5,1);
+  @include responsive(font-size, 1.5, 1);
   color: white;
   margin-bottom: 0;
   line-height: 1.3;
@@ -287,20 +301,20 @@ h4 {
 // Portfolio
 //------------------------------------------------------------------------------
 .portfolio__header {
-  @include responsive(margin-bottom,2);
+  @include responsive(margin-bottom, 2);
 }
 .portfolio__section {
   // @include responsive(padding-top,4);
-  @include responsive(padding-bottom,4);
-  &:nth-child(2n+1) {
+  @include responsive(padding-bottom, 4);
+  &:nth-child(2n + 1) {
     background-color: whitesmoke;
   }
   &:first-of-type {
-    @include responsive(padding-top,2);
+    @include responsive(padding-top, 2);
   }
 }
 .portfolio__intro {
-  @include responsive(font-size,1.25,1);
+  @include responsive(font-size, 1.25, 1);
 }
 .portfolio__group {
   text-align: center;
@@ -328,7 +342,7 @@ h4 {
   width: 100%;
   // background-color: white;
   // background-color: whitesmoke;
-  border: 1px solid rgba(black,0.1);
+  border: 1px solid rgba(black, 0.1);
 }
 .portfolio-item__title {
   border-bottom: none;
@@ -350,10 +364,11 @@ h4 {
 }
 .portfolio-item__content {
   padding-left: 38%;
-  @include responsive(padding-top,2);
-  @include responsive(padding-bottom,2);
-  @include responsive(padding-right,2);
-  p, li {
+  @include responsive(padding-top, 2);
+  @include responsive(padding-bottom, 2);
+  @include responsive(padding-right, 2);
+  p,
+  li {
     font-size: 0.9em;
   }
   li {
@@ -361,7 +376,7 @@ h4 {
   }
 }
 .portfolio-item__content--full {
-  @include responsive(padding,2);
+  @include responsive(padding, 2);
 }
 @media only screen and (max-width: $bp-medium-large) {
   .portfolio-item {
@@ -470,8 +485,12 @@ h4 {
 }
 .projects__column {
   flex: 0 0 50%;
-  &:first-child { padding-right: 0.5rem; }
-  &:last-child { padding-left: 0.5rem; }
+  &:first-child {
+    padding-right: 0.5rem;
+  }
+  &:last-child {
+    padding-left: 0.5rem;
+  }
 }
 .project {
   display: flex;
@@ -488,7 +507,7 @@ h4 {
   position: relative;
   // padding-left: 0.5em;
   &:before {
-    content: "\2022";
+    content: '\2022';
     display: block;
     position: absolute;
     font-size: 2rem;
@@ -578,7 +597,8 @@ h4 {
     display: none;
   }
   .job__position {
-    &, p {
+    &,
+    p {
       margin-bottom: 0;
     }
   }
@@ -658,11 +678,11 @@ h4 {
   float: left;
   height: 40px;
   line-height: 40px;
-  @include responsive(padding-left,1.5);
-  @include responsive(padding-right,1.5);
+  @include responsive(padding-left, 1.5);
+  @include responsive(padding-right, 1.5);
   text-transform: uppercase;
   font-weight: bold;
-  @include responsive(font-size,0.9,0.7);
+  @include responsive(font-size, 0.9, 0.7);
   color: white;
   position: relative;
   cursor: pointer;
@@ -739,7 +759,6 @@ h4 {
     }
     .column:last-child ul {
       margin-bottom: 1em;
-
     }
   }
 }
@@ -751,7 +770,7 @@ h4 {
     color: #072c3c;
   }
   &:after {
-    content: "";
+    content: '';
     display: inline-block;
     border-left: 0.65em solid #0e5f81;
     border-bottom: 0.4em solid transparent;
@@ -777,11 +796,10 @@ h4 {
   line-height: 1.2;
 }
 
-
 .external-link {
   font-weight: bold;
   &:after {
-    content: "";
+    content: '';
     display: inline-block;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#0E5F81" d="M11,0l1.781,1.781l-0.5,0.5l-4,4L7.593,7l1.406,1.406l0.719-0.688l4-4l0.5-0.5l1.781,1.781v-5L11,0L11,0zM0,2v14h14V8h-2v6H2V4h6V2H0z"/></svg>');
     width: 12px;
@@ -794,5 +812,30 @@ h4 {
       margin-top: 2px;
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M11,0l1.781,1.781l-0.5,0.5l-4,4L7.593,7l1.406,1.406l0.719-0.688l4-4l0.5-0.5l1.781,1.781v-5L11,0L11,0zM0,2v14h14V8h-2v6H2V4h6V2H0z"/></svg>');
     }
+  }
+}
+dl {
+  margin-bottom: 2.5em;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+dt,
+dd {
+  margin: 0 0 1em 0;
+  line-height: 1.1;
+  display: inline;
+  font-size: 0.9375em;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+dt {
+}
+dd {
+  padding-left: 0.5em;
+  color: #666666;
+  li {
+    font-weight: 400;
   }
 }
