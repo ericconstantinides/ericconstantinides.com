@@ -58,11 +58,10 @@ const MeasuringSystemToggle = props => {
 
 const MultipliersSlider = props => {
   const { currentMultiplier, onMultiplierChange } = props
-  console.log('currentMultiplier:', currentMultiplier)
   return (
     <>
       <h4 className="">
-        <span>Recipe Size:</span> {currentMultiplier}x
+        <span>Recipe Size:</span> {currentMultiplier}<span className='u-tt-none'>x</span>
       </h4>
       <div className="multiplier-slider__container u-d-f u-mb-2">
         <button
@@ -87,12 +86,46 @@ const MultipliersSlider = props => {
     </>
   )
 }
+const PortionSlider = props => {
+  const { onPortionChange, portionSize, defaultPortionSize } = props
+  const min = Math.floor(defaultPortionSize * .5)
+  const max = Math.ceil(defaultPortionSize * 1.5)
+  return (
+    <>
+      <h4 className="">
+        <span>Portion Size:</span> {portionSize}<span className='u-tt-none'>g</span>
+      </h4>
+      <div className="multiplier-slider__container u-d-f u-mb-2">
+        <button
+          className="multiplier-slider__button--minus"
+          disabled={portionSize === min}
+          onClick={onPortionChange(-1)}
+        />
+        <input
+          type="range"
+          min={min}
+          max={max}
+          value={portionSize}
+          id="portionSize"
+          onChange={onPortionChange()}
+        />
+        <button
+          className="multiplier-slider__button--plus"
+          disabled={portionSize === max}
+          onClick={onPortionChange(1)}
+        />
+      </div>
+    </>
+  )
+}
 
 class Recipe extends React.Component {
   state = {
     measuringSystem: 'metric', // metric or imperial
-    currentMultiplier: 1
+    currentMultiplier: 1,
+    portionSize: this.props.settings.portionSize.amount
   }
+  defaultPortionSize = this.props.settings.portionSize.amount
   handleMeasuringSystemToggle = event => {
     event.preventDefault()
     this.setState(prevState => ({
@@ -109,9 +142,19 @@ class Recipe extends React.Component {
       return { currentMultiplier: parseInt(currentMultiplier) }
     })
   }
+  handlePortionChange = changeAmount => event => {
+    const { value } = event.target // must extract value first
+    this.setState(prevState => {
+      const portionSize =
+        changeAmount === undefined
+          ? value
+          : parseInt(prevState.portionSize) + parseInt(changeAmount) // must parseInt e'ything
+      return { portionSize: parseInt(portionSize) }
+    })
+  }
   render() {
     const { ingredients, settings, instructions, tips } = this.props
-    const { measuringSystem, currentMultiplier } = this.state
+    const { measuringSystem, currentMultiplier, portionSize } = this.state
     return (
       <div className="u-mb-2">
         <MeasuringSystemToggle
@@ -121,6 +164,10 @@ class Recipe extends React.Component {
         <MultipliersSlider
           onMultiplierChange={this.handleMultiplierChange}
           {...{ currentMultiplier }}
+        />
+        <PortionSlider
+          onPortionChange={this.handlePortionChange}
+          {...{ portionSize, defaultPortionSize: this.defaultPortionSize }}
         />
         <Ingredients {...{ ingredients, measuringSystem, currentMultiplier }} />
       </div>

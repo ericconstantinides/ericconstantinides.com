@@ -14,7 +14,7 @@ const settings = {
   cool: {
     minutes: 15
   },
-  servingSize: {
+  portionSize: {
     amount: 115,
     unit: 'gram'
   }
