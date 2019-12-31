@@ -61,8 +61,8 @@ const MultipliersSlider = props => {
   const { currentMultiplier, onMultiplierChange } = props
   const displayMultiplier = currentMultiplier || vulgarFractions['1/2']
   return (
-    <>
-      <h4 className="">
+    <div className="u-pl-1">
+      <h4 className="u-mt-0">
         <span>Recipe Size:</span> {displayMultiplier}<span className='u-tt-none'>x</span>
       </h4>
       <div className="multiplier-slider__container u-d-f u-mb-2">
@@ -85,7 +85,7 @@ const MultipliersSlider = props => {
           onClick={onMultiplierChange(1)}
         />
       </div>
-    </>
+    </div>
   )
 }
 const PortionSlider = props => {
@@ -93,8 +93,8 @@ const PortionSlider = props => {
   const min = Math.floor(defaultPortionSize * .5)
   const max = Math.ceil(defaultPortionSize * 1.5)
   return (
-    <>
-      <h4 className="">
+    <div className="u-pl-1">
+      <h4 className="u-mt-0">
         <span>Portion Size:</span> {portionSize}<span className='u-tt-none'>g</span>
       </h4>
       <div className="multiplier-slider__container u-d-f u-mb-2">
@@ -117,7 +117,7 @@ const PortionSlider = props => {
           onClick={onPortionChange(1)}
         />
       </div>
-    </>
+    </div>
   )
 }
 
@@ -159,18 +159,20 @@ class Recipe extends React.Component {
     const { measuringSystem, currentMultiplier, portionSize } = this.state
     return (
       <div className="u-mb-2">
-        <MeasuringSystemToggle
-          measuringSystem={measuringSystem}
-          onMeasuringSystemToggle={this.handleMeasuringSystemToggle}
-        />
-        <MultipliersSlider
-          onMultiplierChange={this.handleMultiplierChange}
-          {...{ currentMultiplier }}
-        />
-        <PortionSlider
-          onPortionChange={this.handlePortionChange}
-          {...{ portionSize, defaultPortionSize: this.defaultPortionSize }}
-        />
+        <div className='u-d-f u-ai-c'>
+          <MeasuringSystemToggle
+            measuringSystem={measuringSystem}
+            onMeasuringSystemToggle={this.handleMeasuringSystemToggle}
+          />
+          <MultipliersSlider
+            onMultiplierChange={this.handleMultiplierChange}
+            {...{ currentMultiplier }}
+          />
+          <PortionSlider
+            onPortionChange={this.handlePortionChange}
+            {...{ portionSize, defaultPortionSize: this.defaultPortionSize }}
+          />
+        </div>
         <Ingredients {...{ ingredients, measuringSystem, currentMultiplier: currentMultiplier || 0.5 }} />
       </div>
     )
