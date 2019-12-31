@@ -63,7 +63,7 @@ const chooseCorrectImperial = imperialAmount => {
       })
     } else if (amount >= 4) {
       return chooseCorrectImperial({
-        amount: amount / 1,
+        amount: amount / 16,
         unit: 'cup'
       })
     }

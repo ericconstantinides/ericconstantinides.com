@@ -2,7 +2,7 @@ import React from 'react'
 import convertIngredient from './convertIngredient'
 
 const MIN_MULTIPLIER = 1
-const MAX_MULTIPLIER = 6
+const MAX_MULTIPLIER = 8
 
 const Ingredient = props => {
   const { ingredient, measuringSystem, currentMultiplier } = props
@@ -58,27 +58,33 @@ const MeasuringSystemToggle = props => {
 
 const MultipliersSlider = props => {
   const { currentMultiplier, onMultiplierChange } = props
+  console.log('currentMultiplier:', currentMultiplier)
   return (
-    <div className="multiplier-slider__container">
-      <button
-        className="multiplier-slider__button--minus"
-        disabled={currentMultiplier === MIN_MULTIPLIER}
-        onClick={onMultiplierChange(-1)}
-      />
-      <input
-        type="range"
-        min={MIN_MULTIPLIER}
-        max={MAX_MULTIPLIER}
-        value={currentMultiplier}
-        id="mymultiplier"
-        onChange={onMultiplierChange()}
-      />
-      <button
-        className="multiplier-slider__button--plus"
-        disabled={currentMultiplier === MAX_MULTIPLIER}
-        onClick={onMultiplierChange(1)}
-      />
-    </div>
+    <>
+      <h4 className="">
+        <span>Recipe Size:</span> {currentMultiplier}x
+      </h4>
+      <div className="multiplier-slider__container u-d-f u-mb-2">
+        <button
+          className="multiplier-slider__button--minus"
+          disabled={currentMultiplier === MIN_MULTIPLIER}
+          onClick={onMultiplierChange(-1)}
+        />
+        <input
+          type="range"
+          min={MIN_MULTIPLIER}
+          max={MAX_MULTIPLIER}
+          value={currentMultiplier}
+          id="mymultiplier"
+          onChange={onMultiplierChange()}
+        />
+        <button
+          className="multiplier-slider__button--plus"
+          disabled={currentMultiplier === MAX_MULTIPLIER}
+          onClick={onMultiplierChange(1)}
+        />
+      </div>
+    </>
   )
 }
 
@@ -94,18 +100,20 @@ class Recipe extends React.Component {
     }))
   }
   handleMultiplierChange = changeAmount => event => {
-    const currentMultiplier =
-      changeAmount === undefined
-        ? event.target.value
-        : (this.state.currentMultiplier + changeAmount) * 1
-    this.setState({ currentMultiplier })
+    const { value } = event.target // must extract value first
+    this.setState(prevState => {
+      const currentMultiplier =
+        changeAmount === undefined
+          ? value
+          : parseInt(prevState.currentMultiplier) + parseInt(changeAmount) // must parseInt e'ything
+      return { currentMultiplier: parseInt(currentMultiplier) }
+    })
   }
   render() {
     const { ingredients, settings, instructions, tips } = this.props
     const { measuringSystem, currentMultiplier } = this.state
-    console.log('currentMultiplier:', currentMultiplier)
     return (
-      <div>
+      <div className="u-mb-2">
         <MeasuringSystemToggle
           measuringSystem={measuringSystem}
           onMeasuringSystemToggle={this.handleMeasuringSystemToggle}
