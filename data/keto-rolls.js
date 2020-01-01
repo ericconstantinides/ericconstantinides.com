@@ -14,7 +14,7 @@ const settings = {
   cool: {
     minutes: 15
   },
-  servings: 4
+  servings: 5 // need to fix so that it works with 4.6666666
 }
 
 const ingredients = [
@@ -44,7 +44,7 @@ const ingredients = [
     unit: 'gram'
   },
   {
-    name: 'eggs',
+    name: 'egg',
     amount: 2
   },
   {

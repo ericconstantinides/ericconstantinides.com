@@ -134,4 +134,13 @@ const prettifyImperial = imperialAmount => {
   )
 }
 
+export const calculateDefaultWeight = ingredients => {
+  return ingredients.reduce((result, ingredient) => {
+    if (ingredient.unit && ingredient.unit === 'gram') {
+      return result + ingredient.amount
+    }
+    return result + ingredient.amount * pantry[ingredient.name].metric.amount
+  }, 0)
+}
+
 export default convertIngredient

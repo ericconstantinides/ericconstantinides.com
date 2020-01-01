@@ -1,9 +1,11 @@
 import React from 'react'
 import convertIngredient from './convertIngredient'
+import { calculateDefaultWeight } from './convertIngredient'
 import { vulgarFractions } from '../../data/recipe/units'
 
 const MIN_MULTIPLIER = 0 // 0 will turn into half
 const MAX_MULTIPLIER = 8
+const SPILLAGE_GRAMS = 10
 
 const Ingredient = props => {
   const { ingredient, measuringSystem, currentMultiplier } = props
@@ -71,7 +73,9 @@ const MultipliersSlider = props => {
           className="multiplier-slider__button--minus"
           disabled={currentMultiplier === MIN_MULTIPLIER}
           onClick={onMultiplierChange(-1)}
-        >-</button>
+        >
+          -
+        </button>
         <input
           type="range"
           min={MIN_MULTIPLIER}
@@ -84,7 +88,9 @@ const MultipliersSlider = props => {
           className="multiplier-slider__button--plus"
           disabled={currentMultiplier === MAX_MULTIPLIER}
           onClick={onMultiplierChange(1)}
-        >+</button>
+        >
+          +
+        </button>
       </div>
     </div>
   )
@@ -103,7 +109,9 @@ const ServingsSlider = props => {
           className="multiplier-slider__button--minus"
           disabled={servings === min}
           onClick={onServingsChange(-1)}
-        >-</button>
+        >
+          -
+        </button>
         <input
           type="range"
           min={min}
@@ -116,9 +124,22 @@ const ServingsSlider = props => {
           className="multiplier-slider__button--plus"
           disabled={servings === max}
           onClick={onServingsChange(1)}
-        >+</button>
+        >
+          +
+        </button>
       </div>
     </div>
+  )
+}
+
+const ServingSize = props => {
+  const { defaultWeight, servings, currentMultiplier } = props
+  const servingSize = Math.round(((defaultWeight - SPILLAGE_GRAMS) * currentMultiplier) / servings)
+  return (
+    <h4 className="u-pl-1 u-m-0">
+      Approx Serving Size: {servingSize}
+      <span className="u-tt-none">g</span>
+    </h4>
   )
 }
 
@@ -143,6 +164,7 @@ class Recipe extends React.Component {
     servings: this.props.settings.servings
   }
   defaultServings = this.props.settings.servings
+  defaultWeight = calculateDefaultWeight(this.props.ingredients)
   handleMeasuringSystemToggle = event => {
     event.preventDefault()
     this.setState(prevState => ({
@@ -186,10 +208,9 @@ class Recipe extends React.Component {
             onServingsChange={this.handleServingsChange}
             {...{ servings, defaultServings: this.defaultServings, currentMultiplier }}
           />
+          <ServingSize {...{ defaultWeight: this.defaultWeight, servings, currentMultiplier }} />
         </div>
-        <Ingredients
-          {...{ ingredients, measuringSystem, currentMultiplier }}
-        />
+        <Ingredients {...{ ingredients, measuringSystem, currentMultiplier }} />
         <Instructions {...{ instructions }} />
       </div>
     )
