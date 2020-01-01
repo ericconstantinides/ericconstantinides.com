@@ -14,10 +14,7 @@ const settings = {
   cool: {
     minutes: 15
   },
-  portionSize: {
-    amount: 115,
-    unit: 'gram'
-  }
+  servings: 4
 }
 
 const ingredients = [

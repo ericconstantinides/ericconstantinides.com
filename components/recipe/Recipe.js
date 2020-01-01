@@ -25,7 +25,7 @@ class Ingredients extends React.Component {
   render() {
     const { ingredients, measuringSystem, currentMultiplier } = this.props
     return (
-      <div>
+      <div className="u-mb-2">
         <h2>Ingredients</h2>
         <ul>
           {Object.keys(ingredients).map(ingredient => (
@@ -63,14 +63,15 @@ const MultipliersSlider = props => {
   return (
     <div className="u-pl-1">
       <h4 className="u-mt-0">
-        <span>Recipe Size:</span> {displayMultiplier}<span className='u-tt-none'>x</span>
+        <span>Recipe Size:</span> {displayMultiplier}
+        <span className="u-tt-none">x</span>
       </h4>
       <div className="multiplier-slider__container u-d-f u-mb-2">
         <button
           className="multiplier-slider__button--minus"
           disabled={currentMultiplier === MIN_MULTIPLIER}
           onClick={onMultiplierChange(-1)}
-        />
+        >-</button>
         <input
           type="range"
           min={MIN_MULTIPLIER}
@@ -83,40 +84,54 @@ const MultipliersSlider = props => {
           className="multiplier-slider__button--plus"
           disabled={currentMultiplier === MAX_MULTIPLIER}
           onClick={onMultiplierChange(1)}
-        />
+        >+</button>
       </div>
     </div>
   )
 }
-const PortionSlider = props => {
-  const { onPortionChange, portionSize, defaultPortionSize } = props
-  const min = Math.floor(defaultPortionSize * .5)
-  const max = Math.ceil(defaultPortionSize * 1.5)
+const ServingsSlider = props => {
+  const { onServingsChange, servings, defaultServings, currentMultiplier } = props
+  const min = Math.floor(defaultServings * currentMultiplier * 0.5)
+  const max = Math.ceil(defaultServings * currentMultiplier * 1.5)
   return (
     <div className="u-pl-1">
       <h4 className="u-mt-0">
-        <span>Portion Size:</span> {portionSize}<span className='u-tt-none'>g</span>
+        <span>Servings:</span> {servings}
       </h4>
       <div className="multiplier-slider__container u-d-f u-mb-2">
         <button
           className="multiplier-slider__button--minus"
-          disabled={portionSize === min}
-          onClick={onPortionChange(-1)}
-        />
+          disabled={servings === min}
+          onClick={onServingsChange(-1)}
+        >-</button>
         <input
           type="range"
           min={min}
           max={max}
-          value={portionSize}
-          id="portionSize"
-          onChange={onPortionChange()}
+          value={servings}
+          id="servings"
+          onChange={onServingsChange()}
         />
         <button
           className="multiplier-slider__button--plus"
-          disabled={portionSize === max}
-          onClick={onPortionChange(1)}
-        />
+          disabled={servings === max}
+          onClick={onServingsChange(1)}
+        >+</button>
       </div>
+    </div>
+  )
+}
+
+const Instructions = props => {
+  const { instructions } = props
+  return (
+    <div>
+      <h2>Instructions</h2>
+      <ul>
+        {instructions.map((instruction, i) => (
+          <div key={i}>{Object.keys(instruction)[0]}</div>
+        ))}
+      </ul>
     </div>
   )
 }
@@ -125,9 +140,9 @@ class Recipe extends React.Component {
   state = {
     measuringSystem: 'metric', // metric or imperial
     currentMultiplier: 1,
-    portionSize: this.props.settings.portionSize.amount
+    servings: this.props.settings.servings
   }
-  defaultPortionSize = this.props.settings.portionSize.amount
+  defaultServings = this.props.settings.servings
   handleMeasuringSystemToggle = event => {
     event.preventDefault()
     this.setState(prevState => ({
@@ -135,45 +150,47 @@ class Recipe extends React.Component {
     }))
   }
   handleMultiplierChange = changeAmount => event => {
-    const { value } = event.target // must extract value first
+    const value = parseInt(event.target.value) // must extract value first
     this.setState(prevState => {
       const currentMultiplier =
         changeAmount === undefined
           ? value
-          : parseInt(prevState.currentMultiplier) + parseInt(changeAmount) // must parseInt e'ything
-      return { currentMultiplier: parseInt(currentMultiplier) }
+          : parseInt(parseInt(prevState.currentMultiplier) + parseInt(changeAmount)) // must parseInt e'ything
+      return { currentMultiplier, servings: this.defaultServings * (currentMultiplier || 0.5) }
     })
   }
-  handlePortionChange = changeAmount => event => {
-    const { value } = event.target // must extract value first
+  handleServingsChange = changeAmount => event => {
+    const value = parseInt(event.target.value) // must extract value first
     this.setState(prevState => {
-      const portionSize =
-        changeAmount === undefined
-          ? value
-          : parseInt(prevState.portionSize) + parseInt(changeAmount) // must parseInt e'ything
-      return { portionSize: parseInt(portionSize) }
+      const servings =
+        changeAmount === undefined ? value : parseInt(prevState.servings) + parseInt(changeAmount) // must parseInt e'ything
+      return { servings }
     })
   }
   render() {
     const { ingredients, settings, instructions, tips } = this.props
-    const { measuringSystem, currentMultiplier, portionSize } = this.state
+    const { measuringSystem, currentMultiplier: currentMultiplierRaw, servings } = this.state
+    const currentMultiplier = currentMultiplierRaw || 0.5
     return (
       <div className="u-mb-2">
-        <div className='u-d-f u-ai-c'>
+        <div className="u-d-f u-ai-c">
           <MeasuringSystemToggle
             measuringSystem={measuringSystem}
             onMeasuringSystemToggle={this.handleMeasuringSystemToggle}
           />
           <MultipliersSlider
             onMultiplierChange={this.handleMultiplierChange}
-            {...{ currentMultiplier }}
+            {...{ currentMultiplier: currentMultiplierRaw }}
           />
-          <PortionSlider
-            onPortionChange={this.handlePortionChange}
-            {...{ portionSize, defaultPortionSize: this.defaultPortionSize }}
+          <ServingsSlider
+            onServingsChange={this.handleServingsChange}
+            {...{ servings, defaultServings: this.defaultServings, currentMultiplier }}
           />
         </div>
-        <Ingredients {...{ ingredients, measuringSystem, currentMultiplier: currentMultiplier || 0.5 }} />
+        <Ingredients
+          {...{ ingredients, measuringSystem, currentMultiplier }}
+        />
+        <Instructions {...{ instructions }} />
       </div>
     )
   }
