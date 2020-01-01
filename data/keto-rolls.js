@@ -100,7 +100,7 @@ const instructions = [
     text: 'Add rolls to cookie sheet',
     instructions: [
       {
-        text: 'Wet hands and create {settings.roll} rolls on silicone (or parchment) sheet on cookie sheet'
+        text: 'Wet hands and create {settings.roll} rolls on silicone (or parchment) sheet on top of cookie sheet'
       },
     ]
   },

@@ -27,7 +27,7 @@ class Ingredients extends React.Component {
   render() {
     const { ingredients, measuringSystem, currentMultiplier } = this.props
     return (
-      <div className="u-mb-2">
+      <div>
         <h2>Ingredients</h2>
         <ul>
           {Object.keys(ingredients).map(ingredient => (
@@ -144,22 +144,33 @@ const ServingSize = props => {
 }
 
 const Instruction = props => {
-  const { instruction } = props
+  const { text, ingredients, instructions } = props.instruction
+  const subInstructions = instructions ? <Instructions {...{ instructions }} /> : ''
   return (
-    <li>{instruction.text}</li>
+    <li>
+      {text}
+      {subInstructions}
+    </li>
   )
 }
 
 const Instructions = props => {
   const { instructions } = props
   return (
+    <ul>
+      {instructions.map((instruction, i) => (
+        <Instruction key={i} {...{ instruction }} />
+      ))}
+    </ul>
+  )
+}
+
+const InstructionsWrapper = props => {
+  const { instructions } = props
+  return (
     <div>
       <h2>Instructions</h2>
-      <ul>
-        {instructions.map((instruction, i) => (
-          <Instruction key={i} {...{instruction}} />
-        ))}
-      </ul>
+      <Instructions {...{ instructions }} />
     </div>
   )
 }
@@ -217,8 +228,14 @@ class Recipe extends React.Component {
           />
           <ServingSize {...{ defaultWeight: this.defaultWeight, servings, currentMultiplier }} />
         </div>
-        <Ingredients {...{ ingredients, measuringSystem, currentMultiplier }} />
-        <Instructions {...{ instructions }} />
+        <div className="layout--equal">
+          <div className="layout__col">
+            <Ingredients {...{ ingredients, measuringSystem, currentMultiplier }} />
+          </div>
+          <div className="layout__col">
+            <InstructionsWrapper {...{ instructions }} />
+          </div>
+        </div>
       </div>
     )
   }

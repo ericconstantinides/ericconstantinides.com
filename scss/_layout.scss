@@ -23,7 +23,6 @@ body {
 	}
 }
 .site-container {
-	@extend .clearfix;
 	width: calc( 100% - 3rem );
 	max-width: $site-max-width;
 	margin-left: auto;

@@ -1,0 +1,386 @@
+@mixin site-container {
+	width: calc( 100% - 3rem );
+	max-width: $site-max-width;
+  margin-left: auto;
+  margin-right: auto;  
+}
+.site-container {
+  @include site-container;
+}
+.site-container--full {
+  width: calc(100%);
+}
+@media only screen and (max-width: 650px) {
+  .site-container:not(.site-container--full) {
+    width: calc(100% - 1.5em);
+  }
+}
+
+/**
+ * Layout - a simple layout solution. All layout parameters are added as classes on the parent layout el only. The optional responsive classes are mobile-first.
+ * 
+ * Usage:
+ * <div class="[CHOOSE ONE: layout--50-50, layout--30-70, layout--40-60, layout--33-67,
+ *                          layout--67-33, layout--33, layout--equal, layout--sidebar--150px-60px,
+ *                          layout--equal, layout--sidebar--150px-60px, layout--sidebar--225px,
+ *                          layout--sidebar--225px-125px, layout--space-between]
+ *                          layout--sidebar--250px-175px, layout--sidebar--500px-300px
+ *                          layout--space-between]
+ *             [OPTIONAL PADDING: layout--padding-half, layout--padding-none
+ *                                layout--padding-dont-reduce
+ *             [OPTIONAL REVERSE: layout--reverse]
+ *             [OPTIONAL RESPONSIVE: layout--start-950px, layout--start-850px,
+ *                                   layout--start-750px, layout--start-650px,
+ *                                   layout--start-600px, layout--start-550px, layout--start-450px
+ *             [OPTIONAL ADD'L RESPONSIVE: layout--50-50--end-850px layout--50-50--end-750px, 
+ *                                         layout--50-50--end-650px, layout--50-50--end-550px, 
+ *                                         layout--50-50--end-450px"
+ * >
+ *   <div class="layout__col"> // column 1 </div>
+ *   <div class="layout__col"> // column 2 </div>
+ *   ...
+ * </div>
+ */
+ 
+ @media only screen and (min-width: 751px) {
+  [class*=layout--]:not([class*=layout--padding]) {
+    margin-left: -1.25em;
+  }
+  .layout__col {
+    padding-left: 1.25em;
+  }
+  .layout--padding-half {
+    margin-left: -0.625em;
+    > .layout__col {
+      padding-left: 0.625em;
+    }
+  }
+  .layout--padding-large {
+    margin-left: -2em;
+    > .layout__col {
+      padding-left: 2em;
+    }
+  }
+  .layout--padding-none {
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+    }
+  }
+}
+@media only screen and (max-width: 750px) {
+  [class*=layout--]:not([class*=layout--padding]) {
+    margin-left: -1em;
+  }
+  .layout__col {
+    padding-left: 1em;
+  }
+  .layout--padding-half {
+    margin-left: -1em;
+    > .layout__col {
+      padding-left: 1em;
+    }
+  }
+  .layout--padding-none {
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+    }
+  }
+  .layout--padding-dont-reduce {
+    margin-left: -1.25em;
+    .layout__col {
+      padding-left: 1.25em;
+    }
+  }
+  .layout--padding-large {
+    margin-left: -1.25em;
+    .layout__col {
+      padding-left: 1.25em;
+    }
+  }
+}
+
+[class*=layout--] {
+  display: flex;
+}
+.layout--reverse {
+  flex-direction: row-reverse;
+}
+.layout--space-between {
+  justify-content: space-between;
+}
+
+.layout__col {
+  flex: 0 0 auto;
+  // width: 100%;
+  width: 0;
+  overflow: visible;
+  // overflow: overlay;
+  @at-root .layout--equal > & { flex: 1 1 auto }
+  @at-root .layout--50-50 > & { flex-basis: 50% }
+  @at-root .layout--30-70 > &:first-child { flex-basis: 30% }
+  @at-root .layout--30-70 > &:last-child { flex-basis: 70% }
+  @at-root .layout--40-60 > &:first-child { flex-basis: 40% }
+  @at-root .layout--40-60 > &:last-child { flex-basis: 60% }
+  @at-root .layout--33-67 > &:first-child { flex-basis: 33.33% }
+  @at-root .layout--33-67 > &:last-child { flex-basis: 66.66% }
+  @at-root .layout--67-33 > &:first-child { flex-basis: 66.66% }
+  @at-root .layout--67-33 > &:last-child { flex-basis: 33.33% }
+  @at-root .layout--33 > & { flex-basis: 33.33% }
+  @at-root .layout--sidebar--150px-60px > &:first-child {
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include responsive(flex-basis, 150px, 60px, 600);
+    box-sizing: content-box;
+    * {
+      box-sizing: border-box;
+    }
+  }
+  @at-root .layout--sidebar--225px-125px > &:first-child {
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include responsive(flex-basis, 225px, 125px, 900);
+    box-sizing: content-box;
+    * {
+      box-sizing: border-box;
+    }
+  }
+  @at-root .layout--sidebar--250px-175px > &:first-child {
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include responsive(flex-basis, 250px, 175px, 1200);
+    box-sizing: content-box;
+    * {
+      box-sizing: border-box;
+    }
+  }
+  @at-root .layout--sidebar--225px > &:first-child {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 225px;
+    box-sizing: content-box;
+    * {
+      box-sizing: border-box;
+    }
+  }
+  @at-root .layout--sidebar--500px-300px > &:first-child {
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include responsive(flex-basis, 500px, 220px, 1700);
+    box-sizing: content-box;
+    * {
+      box-sizing: border-box;
+    }
+  }
+  @at-root .layout--sidebar--500px-300px > &:first-child {
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include responsive(flex-basis, 500px, 220px, 1700);
+    box-sizing: content-box;
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  @at-root .layout--sidebar--150px-60px > &:last-child {
+    flex: 1 1 auto;
+  }
+  @at-root .layout--sidebar--225px-125px > &:last-child {
+    flex: 1 1 auto;
+  }
+  @at-root .layout--sidebar--250px-175px > &:last-child {
+    flex: 1 1 auto;
+  }
+  @at-root .layout--sidebar--225px > &:last-child {
+    flex: 1 1 auto;
+  }
+  @at-root .layout--sidebar--500px-300px > &:last-child {
+    flex: 1 1 auto;
+  }
+  @at-root .layout--sidebar--500px-300px > &:last-child {
+    flex: 1 1 auto;
+  }
+}
+/* Target IE11; IE11 doesn't like to use flex-basis without flex-shrink and flex-grow being 1 */
+@media all and (-ms-high-contrast: none) {
+  .layout__col {
+    flex: 1 1 auto;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .layout--start-1050px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .layout--start-950px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+}
+@media only screen and (max-width: 850px) {
+  .layout--start-850px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+  .layout--50-50--end-850px:not(._) {
+    > .layout__col {
+      flex-basis: 50%;
+    }
+  }
+}
+@media only screen and (max-width: 750px) {
+  .layout--start-750px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+  .layout--50-50--end-750px:not(._) {
+    > .layout__col {
+      flex-basis: 50%;
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .layout--start-650px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+  .layout--50-50--end-650px:not(._) {
+    > .layout__col {
+      flex-basis: 50%;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .layout--start-600px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+  .layout--50-50--end-600px:not(._) {
+    > .layout__col {
+      flex-basis: 50%;
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .layout--start-550px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+  .layout--50-50--end-550px:not(._) {
+    > .layout__col {
+      flex-basis: 50%;
+    }
+  }
+}
+@media only screen and (max-width: 450px) {
+  .layout--start-450px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+  .layout--50-50--end-450px:not(._) {
+    > .layout__col {
+      flex-basis: 50%;
+    }
+  }
+}
