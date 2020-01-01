@@ -143,6 +143,13 @@ const ServingSize = props => {
   )
 }
 
+const Instruction = props => {
+  const { instruction } = props
+  return (
+    <li>{instruction.text}</li>
+  )
+}
+
 const Instructions = props => {
   const { instructions } = props
   return (
@@ -150,7 +157,7 @@ const Instructions = props => {
       <h2>Instructions</h2>
       <ul>
         {instructions.map((instruction, i) => (
-          <div key={i}>{Object.keys(instruction)[0]}</div>
+          <Instruction key={i} {...{instruction}} />
         ))}
       </ul>
     </div>

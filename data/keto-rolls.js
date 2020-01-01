@@ -66,35 +66,50 @@ const ingredients = [
 
 const instructions = [
   {
-    'Add and briefly blend dry ingredients': [
-      getIngredient('Almond Flour', ingredients),
-      getIngredient('Psyllium Husk Powder', ingredients),
-      getIngredient('Baking Powder', ingredients),
-      getIngredient('Salt', ingredients),
-      getIngredient('Apple Cider Vinegar', ingredients)
+    text: 'Add and briefly blend dry ingredients',
+    ingredients: [
+      'Almond Flour',
+      'Psyllium Husk Powder',
+      'Baking Powder',
+      'Salt',
+      'Apple Cider Vinegar'
     ]
   },
   {
-    'Prep boiling water and oven': [
-      <>Start {getIngredient('Water', ingredients)} (in microwave) to use later</>,
-      <>Set oven to {settings.oven.amount}º</>
+    text: 'Prep boiling water and oven',
+    instructions: [
+      {
+        text: 'Start {getIngredient(\'Water\', ingredients)} (in microwave) to use later'
+      },
+      {
+        text: 'Set oven to {settings.oven.amount}º'
+      },
     ]
   },
   {
-    'Add and briefly blend wet ingredients': [
-      getIngredient('Apple Cider Vinegar', ingredients),
-      getIngredient('Eggs', ingredients)
+    text: 'Add and briefly blend wet ingredients',
+    ingredients: [
+      'Apple Cider Vinegar',
+      'Eggs',
     ]
   },
-  'Mix in boiling water for ~30-45 seconds',
   {
-    'Add rolls to cookie sheet': [
-      <>Number of rolls = (weight of bowl with dough - 10g - bowl empty bowl) / {settings.roll}</>,
-      <>Wet hands and create {settings.roll} rolls on silicone (or parchment) sheet on cookie sheet</>
+    text: 'Mix in boiling water for ~30-45 seconds'
+  },
+  {
+    text: 'Add rolls to cookie sheet',
+    instructions: [
+      {
+        text: 'Wet hands and create {settings.roll} rolls on silicone (or parchment) sheet on cookie sheet'
+      },
     ]
   },
-  <>Cook rolls on center rack for {settings.oven.minutes} minutes @{settings.oven.temperature}°</>,
-  <>Cool rolls on drying rack to firm-up for at least 15 minutes</>
+  {
+    text: 'Cook rolls on center rack for {settings.oven.minutes} minutes @{settings.oven.temperature}°'
+  },
+  {
+    text: 'Cool rolls on drying rack to firm-up for at least 15 minutes'
+  }
 ]
 
 const tips = [
