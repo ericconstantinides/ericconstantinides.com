@@ -39,13 +39,16 @@ const ingredients = [
     unit: 'gram'
   },
   {
-    name: 'apple cider vinegar',
-    amount: 10,
-    unit: 'gram'
+    name: 'rosemary',
+    amount: 1.5,
+    unit: 'gram',
+    optional: true
   },
   {
-    name: 'egg',
-    amount: 2
+    name: 'thyme',
+    amount: 1.5,
+    unit: 'gram',
+    optional: true
   },
   {
     name: 'water',
@@ -53,14 +56,13 @@ const ingredients = [
     unit: 'gram'
   },
   {
-    name: 'rosemary',
-    amount: 1.5,
+    name: 'apple cider vinegar',
+    amount: 10,
     unit: 'gram'
   },
   {
-    name: 'thyme',
-    amount: 1.5,
-    unit: 'gram'
+    name: 'egg',
+    amount: 2
   }
 ]
 
