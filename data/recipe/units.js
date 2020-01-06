@@ -90,6 +90,39 @@ const units = {
   }
 }
 
+const units2 = {
+  volume: {
+    imperial: {
+
+    },
+    metric: {
+
+    }
+  },
+  mass: {
+    imperial: {
+
+    },
+    metric: {
+
+    }
+  },
+  temperature: {
+    imperial: {
+      F: {
+        singular: 'Fahrenheit',
+        category: 'temperature',
+      }
+    },
+    metric: {
+      C: {
+        singular: 'Celsius',
+        category: 'temperature',
+      }
+    }
+  }
+}
+
 export const vulgarFractions = {
   '1/2': '½',
   '1/3': '⅓',
