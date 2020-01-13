@@ -121,6 +121,7 @@ const tips = [
   'be careful not to cook the eggs when adding the boiling water',
   'When baking, leave at least 1 roll length between each roll for adequate rising',
   'Buy Rosemary and Thyme in bulk (fresher and vastly cheaper) from Whole Foods or Sprouts',
+  <>Highly Recommended Scale: <a href='https://www.amazon.com/gp/product/B008FB16QI/'>ZIEIS High Precision Digital Kitchen Scale, Z3000-Surge, Black</a></>
 ]
 
 export default {ingredients, settings, instructions, tips}
