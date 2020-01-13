@@ -31,7 +31,8 @@
  *             [OPTIONAL REVERSE: layout--reverse]
  *             [OPTIONAL RESPONSIVE: layout--start-950px, layout--start-850px,
  *                                   layout--start-750px, layout--start-650px,
- *                                   layout--start-600px, layout--start-550px, layout--start-450px
+ *                                   layout--start-600px, layout--start-550px, layout--start-450px,
+ *                                   layout--start-350px
  *             [OPTIONAL ADD'L RESPONSIVE: layout--50-50--end-850px layout--50-50--end-750px, 
  *                                         layout--50-50--end-650px, layout--50-50--end-550px, 
  *                                         layout--50-50--end-450px"
@@ -379,6 +380,29 @@
     }
   }
   .layout--50-50--end-450px:not(._) {
+    > .layout__col {
+      flex-basis: 50%;
+    }
+  }
+}
+@media only screen and (max-width: 350px) {
+  .layout--start-350px:not(._) {
+    flex-flow: column;
+    margin-left: 0;
+    > .layout__col {
+      padding-left: 0;
+      flex-basis: auto;
+      margin-bottom: 1em;
+      width: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.layout--padding-none > .layout__col {
+      margin-bottom: 0;
+    }
+  }
+  .layout--50-50--end-350px:not(._) {
     > .layout__col {
       flex-basis: 50%;
     }

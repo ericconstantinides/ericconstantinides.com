@@ -63,7 +63,7 @@ const MultipliersSlider = props => {
   const { currentMultiplier, onMultiplierChange } = props
   const displayMultiplier = currentMultiplier || vulgarFractions['1/2']
   return (
-    <div className="u-pl-1">
+    <div className="">
       <h4 className="u-mt-0">
         <span>Recipe Size:</span> {displayMultiplier}
         <span className="u-tt-none">x</span>
@@ -100,7 +100,7 @@ const ServingsSlider = props => {
   const min = Math.floor(defaultServings * currentMultiplier * 0.5)
   const max = Math.ceil(defaultServings * currentMultiplier * 1.5)
   return (
-    <div className="u-pl-1">
+    <div className="">
       <h4 className="u-mt-0">
         <span>Servings:</span> {servings}
       </h4>
@@ -136,7 +136,7 @@ const ServingSize = props => {
   const { defaultWeight, servings, currentMultiplier } = props
   const servingSize = Math.round(((defaultWeight - SPILLAGE_GRAMS) * currentMultiplier) / servings)
   return (
-    <h4 className="u-pl-1 u-m-0">
+    <h4 className="u-m-0">
       Approx Serving Size: {servingSize}
       <span className="u-tt-none">g</span>
     </h4>
@@ -250,20 +250,36 @@ class Recipe extends React.Component {
     const currentMultiplier = currentMultiplierRaw || 0.5
     return (
       <div className="u-mb-2">
-        <div className="u-d-f u-ai-c">
-          <MeasuringSystemToggle
-            measuringSystem={measuringSystem}
-            onMeasuringSystemToggle={this.handleMeasuringSystemToggle}
-          />
-          <MultipliersSlider
-            onMultiplierChange={this.handleMultiplierChange}
-            {...{ currentMultiplier: currentMultiplierRaw }}
-          />
-          <ServingsSlider
-            onServingsChange={this.handleServingsChange}
-            {...{ servings, defaultServings: this.defaultServings, currentMultiplier }}
-          />
-          <ServingSize {...{ defaultWeight: this.defaultWeight, servings, currentMultiplier }} />
+        <div className="layout--equal layout--start-750px u-mb-2">
+          <div className='layout__col'>
+            <div className="layout--equal layout--start-350px">
+              <div className='layout__col'>
+                <MeasuringSystemToggle
+                  measuringSystem={measuringSystem}
+                  onMeasuringSystemToggle={this.handleMeasuringSystemToggle}
+                />
+              </div>
+              <div className='layout__col'>
+                <MultipliersSlider
+                  onMultiplierChange={this.handleMultiplierChange}
+                  {...{ currentMultiplier: currentMultiplierRaw }}
+                />
+              </div>
+            </div>
+          </div>
+          <div className='layout__col'>
+            <div className="layout--equal layout--start-350px">
+              <div className='layout__col'>
+                <ServingsSlider
+                  onServingsChange={this.handleServingsChange}
+                  {...{ servings, defaultServings: this.defaultServings, currentMultiplier }}
+                />
+              </div>
+              <div className='layout__col'>
+                <ServingSize {...{ defaultWeight: this.defaultWeight, servings, currentMultiplier }} />
+              </div>
+            </div>
+          </div>
         </div>
         <Settings {...{settings, measuringSystem}} />
         <div className="layout--equal">
