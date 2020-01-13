@@ -6,14 +6,14 @@ const getIngredient = (ing, ingredients) => {
 
 
 const settings = {
-  oven: {
-    temperature: 350,
-    unit: 'Fahrenheit',
-    minutes: 55
-  },
-  cool: {
-    minutes: 15
-  },
+  meta: [
+    {
+      text: 'Bakes at 350 degrees F (175 degrees C) for 55 minutes',
+      temperature: 350,
+      unit: 'Fahrenheit',
+      minutes: 55
+    },
+  ],
   servings: 5 // need to fix so that it works with 4.6666666
 }
 
@@ -56,7 +56,7 @@ const ingredients = [
     unit: 'gram'
   },
   {
-    name: 'apple cider vinegar',
+    name: 'vinegar, apple cider',
     amount: 10,
     unit: 'gram'
   },

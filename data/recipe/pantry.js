@@ -43,7 +43,7 @@ const pantry = {
     },
     calories: 0
   },
-  'apple cider vinegar': {
+  'vinegar, apple cider': {
     imperial: {
       amount: 1,
       unit: 'tablespoon'
@@ -108,6 +108,17 @@ const pantry = {
       unit: 'gram'
     },
     calories: 100
+  },
+  'vinegar, white': {
+    imperial: {
+      amount: 1,
+      unit: 'cup'
+    },
+    metric: {
+      amount: 238.4,
+      unit: 'gram'
+    },
+    calories: 0
   }
 }
 

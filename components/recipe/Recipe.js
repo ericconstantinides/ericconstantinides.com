@@ -143,6 +143,29 @@ const ServingSize = props => {
   )
 }
 
+const Meta = props => {
+  const { metaItem } = props
+  return (
+    <li>
+      {metaItem.text}
+    </li>
+  )
+}
+
+const Settings = props => {
+  const { settings: { meta }, measuringSystem } = props
+  return (
+    <div className="u-mb-2">
+      <h2>Meta</h2>
+      <ul>
+        {meta.map((metaItem, i) => {
+          return <Meta key={i} metaItem={metaItem} />
+        })}
+      </ul>
+    </div>
+  )
+}
+
 const Instruction = props => {
   const { text, ingredients, instructions } = props.instruction
   const subInstructions = instructions ? <Instructions {...{ instructions }} /> : ''
@@ -228,6 +251,7 @@ class Recipe extends React.Component {
           />
           <ServingSize {...{ defaultWeight: this.defaultWeight, servings, currentMultiplier }} />
         </div>
+        <Settings {...{settings, measuringSystem}} />
         <div className="layout--equal">
           <div className="layout__col">
             <Ingredients {...{ ingredients, measuringSystem, currentMultiplier }} />
