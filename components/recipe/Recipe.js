@@ -143,6 +143,20 @@ const ServingSize = props => {
   )
 }
 
+const Tips = props => {
+  const { tips, measuringSystem } = props
+  return (
+    <div className="">
+      <h2>Tips</h2>
+      <ul>
+        {tips.map((tip, i) => {
+          return <li key={i} >{tip}</li>
+        })}
+      </ul>
+    </div>
+  )
+}
+
 const Meta = props => {
   const { metaItem } = props
   return (
@@ -260,6 +274,7 @@ class Recipe extends React.Component {
             <InstructionsWrapper {...{ instructions }} />
           </div>
         </div>
+        <Tips {...{tips, measuringSystem}} />
       </div>
     )
   }
