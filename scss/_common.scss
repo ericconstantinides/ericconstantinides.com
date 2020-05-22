@@ -165,16 +165,6 @@ h4 {
   .resume-header__meta-item {
     display: flex;
   }
-  .resume-header__meta-inner-item {
-    // padding-right: 1em;
-    &:after {
-      content: '\2003|\2003';
-      display: inline;
-    }
-    &:last-child:after {
-      content: none;
-    }
-  }
 }
 .introduction {
   margin-top: -0.25rem;
@@ -225,7 +215,7 @@ h4 {
 }
 @media print {
   .social-links {
-    // flex-flow: column;
+    flex-flow: column;
     margin-top: 0;
   }
   a.social-link {
@@ -239,6 +229,9 @@ h4 {
     background-size: 14px 14px;
     background-position: left center;
     text-indent: calc(14px + 0.5em);
+    &:after {
+      content: attr(href);
+    }
   }
 }
 .no-after:after {
@@ -837,5 +830,11 @@ dd {
   color: #666666;
   li {
     font-weight: 400;
+  }
+}
+
+@media print {
+  html {
+    font-size: 20px;
   }
 }
