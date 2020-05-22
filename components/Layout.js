@@ -1,6 +1,4 @@
 import Head from 'next/head'
-
-import '../scss/master.scss'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 
@@ -32,7 +30,7 @@ const Layout = (props) => (
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
       <title>{props.title ? props.title : 'Eric Constantinides'}</title>
       <meta name="description" content={props.metaDescription ? props.metaDescription : ''} />
-      <link rel="icon" type="image/png" href="/static/favicon.png" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
       <link href='//fonts.googleapis.com/css?family=Oswald:400,300|Quattrocento+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
     </Head>
     <SiteHeader />

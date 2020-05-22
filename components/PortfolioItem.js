@@ -27,7 +27,7 @@ const PortfolioItem = props => {
         <div className='portfolio-item__image-wrapper'>
           <img
             className='portfolio-item__image'
-            src={'/static/images/' + props.screenshot}
+            src={'/images/' + props.screenshot}
             alt={`${props.title} screenshot`}
           />
         </div>

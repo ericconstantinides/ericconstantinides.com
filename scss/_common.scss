@@ -212,10 +212,10 @@ h4 {
   margin: 0 0.5rem;
 }
 .social-link__github {
-  background-image: url(/static/images/logo--github.png);
+  background-image: url(/images/logo--github.png);
 }
 .social-link__linkedin {
-  background-image: url(/static/images/logo--linkedin.png);
+  background-image: url(/images/logo--linkedin.png);
 }
 .social-logo {
   width: 29px;
@@ -255,7 +255,7 @@ h4 {
   background-position: left center;
   position: relative;
   z-index: 1;
-  background-image: url(/static/images/bg--golden-gate-bridge.jpg);
+  background-image: url(/images/bg--golden-gate-bridge.jpg);
   &:before {
     content: "";
     position: absolute;
@@ -719,7 +719,7 @@ h4 {
 //     display: block;
 //     width: 20px;
 //     height: 20px;
-//     background-image: url(/static/images/icon--adobe-pdf-v2.png);
+//     background-image: url(/images/icon--adobe-pdf-v2.png);
 //     background-size: contain;
 //   }
 // }

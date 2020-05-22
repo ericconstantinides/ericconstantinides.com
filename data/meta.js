@@ -3,7 +3,7 @@ const meta = {
   email: 'eric@ericconstantinides.com',
   location: 'San Jose, CA',
   phone: '(415) 571-6764',
-  image: '/static/images/eric-constantinides.jpg',
+  image: '/images/eric-constantinides.jpg',
   github: 'ericconstantinides',
   linkedin: 'constantinides',
   metaDescription:

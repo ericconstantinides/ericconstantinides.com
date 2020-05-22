@@ -1,9 +1,9 @@
 import Router from 'next/router'
 import withGA from 'next-ga'
-
+import '../scss/master.scss'
 
 import React from 'react'
-import App, { Container } from 'next/app'
+import App from 'next/app'
 
 // unregister serviceworkers:
 if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
@@ -30,9 +30,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props
 
     return (
-      <Container>
-        <Component {...pageProps} />
-      </Container>
+      <Component {...pageProps} />
     )
   }
 }

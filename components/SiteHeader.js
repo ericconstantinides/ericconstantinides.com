@@ -14,7 +14,7 @@ const SiteHeader = () => (
             <span className="main-nav__item">Resume</span>
           </Link>
           <a
-            href="/static/Eric_Constantinides_resume.pdf"
+            href="/Eric_Constantinides_resume.pdf"
             className="main-nav__item main-nav__item--pdf"
             target="_blank"
             rel="noopener noreferrer"

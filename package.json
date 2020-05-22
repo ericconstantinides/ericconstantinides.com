@@ -1,6 +1,6 @@
 {
   "name": "ericconstantinides.com",
-  "version": "2.0.0",
+  "version": "2.5.0",
   "description": "EricConstantinides.com using next.js",
   "main": "index.js",
   "scripts": {
@@ -13,13 +13,12 @@
   "author": "Eric Constantinides",
   "license": "ISC",
   "dependencies": {
-    "@zeit/next-sass": "^1.0.1",
-    "express": "^4.16.4",
-    "next": "^8.0.3",
+    "express": "^4.17.1",
+    "next": "^9.4.2",
     "next-ga": "^2.3.4",
-    "node-sass": "^4.11.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-ga": "^2.5.7"
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-ga": "^2.7.0",
+    "sass": "^1.26.5"
   }
 }
