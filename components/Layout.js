@@ -31,7 +31,7 @@ const Layout = (props) => (
       <title>{props.title ? props.title : 'Eric Constantinides'}</title>
       <meta name="description" content={props.metaDescription ? props.metaDescription : ''} />
       <link rel="icon" type="image/png" href="/favicon.png" />
-      <link href='//fonts.googleapis.com/css?family=Oswald:400,300|Quattrocento+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+      {/* <link href='//fonts.googleapis.com/css?family=Oswald:400,300|Quattrocento+Sans:400,700,400italic' rel='preload' type='text/css' /> */}
     </Head>
     <SiteHeader />
     {props.children}
