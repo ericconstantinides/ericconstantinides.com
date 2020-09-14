@@ -5,7 +5,7 @@ const experience = [
   {
     name: 'Automation Anywhere',
     location: 'San Jose, CA',
-    address: '1060 Rincon Circle, San Jose, CA 95131',
+    address: '633 River Oaks Pkwy, San Jose, CA 95134',
     description: 'Robotic Process Automation (RPA) Provider',
     startDate: 'Apr 2019',
     fullStartDate: '2019-04-03',
@@ -13,12 +13,12 @@ const experience = [
     // lengthOfEmployment: '',
     position: [
       {
-        title: 'Lead Front-end UI Engineer',
+        title: 'Lead UI & Front-End Engineer',
         info:
-          'Lead Front-end UI engineer on botstore.automationanywhere.com.'
+          'Lead UI & Front-End Engineer on Bot Store, Private Bot Store, and Developer Portal'
       }
     ],
-    // projects: getProjects('Insureon'),
+    projects: getProjects('Automation Anywhere'),
     initiatives: []
   },
   {
@@ -34,7 +34,7 @@ const experience = [
     lengthOfEmployment: '1 year, 2 months, 10 days',
     position: [
       {
-        title: 'Front-end UI Engineer',
+        title: 'UI & Front-End Engineer',
         info:
           'Co-engineer for building the Customer Portal for Insureon. Customer Portal is built using React, Webpack, CSS Modules, Post-CSS, Babel, React Router, etc. Responsible for building out app pages using CSS and JS. In addition, my authored initiatives include:'
       }
