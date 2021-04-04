@@ -573,7 +573,11 @@ h4 {
   font-weight: 500;
   white-space: nowrap;
 }
-.job__position {
+.job__position,
+.job__position p {
+  margin-bottom: 0.5em;
+}
+.job__position:last-child {
   margin-bottom: 1em;
 }
 .job__header-date {

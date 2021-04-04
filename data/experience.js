@@ -13,13 +13,31 @@ const experience = [
     // lengthOfEmployment: '',
     position: [
       {
-        title: 'Lead UI & Front-End Engineer',
+        title: 'UI Architect',
+        meta: 'Dec 2020 - Current',
         info:
-          'Lead UI & Front-End Engineer on Bot Store, Private Bot Store, and Developer Portal'
-      }
+          'UI Architect, Automation 360 Platform'
+      },
+      {
+        title: 'Lead UI Engineer',
+        meta: 'July 2019 - Dec 2020',
+        info:
+          'Lead UI / Front-End Engineer on Bot Store, Private Bot Store, and Developer Portal'
+      },
+      {
+        title: 'Senior UI Engineer',
+        meta: 'Apr 2019 - July 2019',
+        info:
+          'Senior UI / Front-End Engineer on Bot Store and Private Bot Store'
+      },
     ],
     projects: getProjects('Automation Anywhere'),
-    initiatives: []
+   /*  initiatives: [
+      {
+        title: 'Front-end Gatherings',
+        info: 'Weekly meetings to teach Front-end best practices'
+      },
+    ] */
   },
   {
     name: 'Insureon',
@@ -33,7 +51,7 @@ const experience = [
     lengthOfEmployment: '1 year, 2 months, 10 days',
     position: [
       {
-        title: 'UI & Front-End Engineer',
+        title: 'Senior UI & Front-End Engineer',
         info:
           'Co-engineer for building the Customer Portal for Insureon. Customer Portal is built using React, Webpack, CSS Modules, Post-CSS, Babel, React Router, etc. Responsible for building out app pages using CSS and JS. In addition, my authored initiatives include:'
       }
