@@ -1,8 +1,8 @@
 const introduction = {
-  resume: `<p><strong>In a nutshell:</strong> I'm a passionate <strong>Front-end UI Engineer</strong> specializing in <strong>React</strong>, <strong>Redux</strong>, <strong>CSS</strong>, and <strong>Vanilla JS</strong>. Most importantly, I always strive for an <strong>Amazing User Experience</strong>!</p>
-    <p><strong>Most Recently:</strong> I'm a React / UI Engineer at Insureon working on the <a href='https://up.apps.insureon.com/' target='_blank'>Customer Portal Web App</a> using React and JavaScript.</p>
-    <p><strong>Previously:</strong> I was working on <a href='https://www.bottomlessbrunch.com' target='_blank'>BottomlessBrunch.com</a>, a React and Redux based web app. <strong>Before that</strong> I was Lead Front-End Developer at EverSport Media. <strong>Before that</strong> I was a Senior Web Developer at Flickerbox in San Francisco.</p>`,
-  homepage: `My name is Eric Constantinides. I am a Front-end / Javascript / React engineer specializing in thoughtful UI/UX, React, Redux, Sass, and Vanilla JS. This site is a collection of projects that I've worked on.`
+  resume: `<p><strong>In a nutshell:</strong> I'm a passionate <strong>UI Architect</strong> specializing in <strong>JavaScript</strong>, <strong>React</strong>, <strong>CSS</strong>, and <strong>Vanilla JS</strong>. Most importantly, I always strive for an <strong>Amazing User Experience</strong>!</p>
+    <p><strong>Most Recently:</strong> I'm a UI Architect at <a href='https://www.automationanywhere.com/' target='_blank'>Automation Anywhere</a> working on the <a href='https://www.automationanywhere.com/products/automation-360' target='_blank'>Automation 360 platform</a> using React and JavaScript.</p>
+    <p><strong>Previously:</strong> I was working on the <a href='https://developer.automationanywhere.com'>Automation Anywhere Developer Portal</a>, a React / <a href='https://nextjs.org/' target='_blank'>Next.js</a> web app ane the <a href='https://botstore.automationanywhere.com/'>Automation Anywhere Bot Store</a>. <strong>Before that</strong> I was a UI Engineer a Insureon in San Jose, Ca.`,
+  homepage: `My name is Eric Constantinides. I'm a User Interface Architect specializing in thoughtful UI/UX, React, Sass, and Vanilla JS. This is a collection of the projects that I've worked on.`
 }
 
 export default introduction

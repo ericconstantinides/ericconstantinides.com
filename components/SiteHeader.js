@@ -22,14 +22,14 @@ const SiteHeader = () => (
           >
             PDF Resume
           </a>
-          <a
+          {/* <a
             href="https://www.muddlingthroughcode.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="main-nav__item external-link external-link--white"
           >
             Blog
-          </a>
+          </a> */}
         </nav>
       </div>
     </div>

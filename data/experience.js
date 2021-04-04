@@ -28,7 +28,6 @@ const experience = [
     description: 'Online Business Insurance Broker',
     startDate: 'Jan 2018',
     fullStartDate: '2018-01-24',
-    // endDate: 'Current',
     endDate: 'Apr 2019',
     fullEndDate: '2019-04-02',
     lengthOfEmployment: '1 year, 2 months, 10 days',
