@@ -13,12 +13,13 @@
   "author": "Eric Constantinides",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "next": "^9.4.2",
+    "express": "^4.17.3",
+    "next": "^12.1.0",
     "next-ga": "^2.3.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-ga": "^2.7.0",
-    "sass": "^1.26.5"
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "17.0.2",
+    "react-ga": "^3.3.0",
+    "sass": "^1.49.9"
   }
 }
